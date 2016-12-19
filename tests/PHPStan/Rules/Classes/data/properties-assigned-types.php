@@ -5,6 +5,8 @@ namespace PropertiesAssignedTypes;
 class Foo extends Ipsum
 {
 
+	use BarTrait;
+
 	/** @var string */
 	private $stringProperty;
 
@@ -33,6 +35,8 @@ class Foo extends Ipsum
 		parent::$parentStringProperty = 1;
 		$this->nonexistentProperty = 'foo';
 		$this->nonexistentProperty = 1;
+		$this->dateTimeNotNullProperty = null;
+		$this->dateTimeNullProperty = null;
 	}
 
 }
@@ -43,4 +47,13 @@ class Ipsum
 	/** @var string */
 	protected $parentStringProperty;
 
+}
+
+trait BarTrait {
+
+	/** @var \DateTime */
+	protected $dateTimeNotNullProperty;
+
+	/** @var \DateTime|null */
+	protected $dateTimeNullProperty;
 }

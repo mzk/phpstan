@@ -15,18 +15,14 @@ class TypesAssignedToPropertiesRuleTest extends \PHPStan\Rules\AbstractRuleTest
 		$this->analyse([__DIR__ . '/data/properties-assigned-types.php'], [
 			[
 				'Property PropertiesAssignedTypes\Foo::$stringProperty (string) does not accept int.',
-				23,
-			],
-			[
-				'Property PropertiesAssignedTypes\Foo::$intProperty (int) does not accept string.',
 				25,
 			],
 			[
-				'Property PropertiesAssignedTypes\Foo::$fooProperty (PropertiesAssignedTypes\Foo) does not accept PropertiesAssignedTypes\Bar.',
+				'Property PropertiesAssignedTypes\Foo::$intProperty (int) does not accept string.',
 				27,
 			],
 			[
-				'Static property PropertiesAssignedTypes\Foo::$staticStringProperty (string) does not accept int.',
+				'Property PropertiesAssignedTypes\Foo::$fooProperty (PropertiesAssignedTypes\Foo) does not accept PropertiesAssignedTypes\Bar.',
 				29,
 			],
 			[
@@ -34,8 +30,16 @@ class TypesAssignedToPropertiesRuleTest extends \PHPStan\Rules\AbstractRuleTest
 				31,
 			],
 			[
-				'Static property PropertiesAssignedTypes\Ipsum::$parentStringProperty (string) does not accept int.',
+				'Static property PropertiesAssignedTypes\Foo::$staticStringProperty (string) does not accept int.',
 				33,
+			],
+			[
+				'Static property PropertiesAssignedTypes\Ipsum::$parentStringProperty (string) does not accept int.',
+				35,
+			],
+			[
+				'Property PropertiesAssignedTypes\Foo::$dateTimeNotNullProperty (DateTime) does not accept null.',
+				38,
 			],
 		]);
 	}
