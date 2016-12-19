@@ -12,21 +12,18 @@ class TypesAssignedToPropertiesRuleTest extends \PHPStan\Rules\AbstractRuleTest
 
 	public function testTypesAssignedToProperties()
 	{
+		include_once __DIR__ . '/data/BarTrait.php';
 		$this->analyse([__DIR__ . '/data/properties-assigned-types.php'], [
 			[
 				'Property PropertiesAssignedTypes\Foo::$stringProperty (string) does not accept int.',
-				25,
-			],
-			[
-				'Property PropertiesAssignedTypes\Foo::$intProperty (int) does not accept string.',
 				27,
 			],
 			[
-				'Property PropertiesAssignedTypes\Foo::$fooProperty (PropertiesAssignedTypes\Foo) does not accept PropertiesAssignedTypes\Bar.',
+				'Property PropertiesAssignedTypes\Foo::$intProperty (int) does not accept string.',
 				29,
 			],
 			[
-				'Static property PropertiesAssignedTypes\Foo::$staticStringProperty (string) does not accept int.',
+				'Property PropertiesAssignedTypes\Foo::$fooProperty (PropertiesAssignedTypes\Foo) does not accept PropertiesAssignedTypes\Bar.',
 				31,
 			],
 			[
@@ -34,12 +31,16 @@ class TypesAssignedToPropertiesRuleTest extends \PHPStan\Rules\AbstractRuleTest
 				33,
 			],
 			[
-				'Static property PropertiesAssignedTypes\Ipsum::$parentStringProperty (string) does not accept int.',
+				'Static property PropertiesAssignedTypes\Foo::$staticStringProperty (string) does not accept int.',
 				35,
 			],
 			[
+				'Static property PropertiesAssignedTypes\Ipsum::$parentStringProperty (string) does not accept int.',
+				37,
+			],
+			[
 				'Property PropertiesAssignedTypes\Foo::$dateTimeNotNullProperty (DateTime) does not accept null.',
-				38,
+				41,
 			],
 		]);
 	}

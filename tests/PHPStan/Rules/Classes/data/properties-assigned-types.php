@@ -2,6 +2,8 @@
 
 namespace PropertiesAssignedTypes;
 
+use PHPStan\Rules\Classes\BarTrait;
+
 class Foo extends Ipsum
 {
 
@@ -47,13 +49,4 @@ class Ipsum
 	/** @var string */
 	protected $parentStringProperty;
 
-}
-
-trait BarTrait {
-
-	/** @var \DateTime */
-	protected $dateTimeNotNullProperty;
-
-	/** @var \DateTime|null */
-	protected $dateTimeNullProperty;
 }
