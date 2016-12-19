@@ -13,7 +13,10 @@ class TypesAssignedToPropertiesRuleTest extends \PHPStan\Rules\AbstractRuleTest
 	public function testTypesAssignedToProperties()
 	{
 		include_once __DIR__ . '/data/BarTrait.php';
-		$this->analyse([__DIR__ . '/data/properties-assigned-types.php'], [
+		$this->analyse([
+		    __DIR__ . '/data/properties-assigned-types.php',
+		    __DIR__ . '/data/BarTrait.php',
+        ], [
 			[
 				'Property PropertiesAssignedTypes\Foo::$stringProperty (string) does not accept int.',
 				27,
